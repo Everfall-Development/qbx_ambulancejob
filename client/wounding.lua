@@ -21,7 +21,6 @@ lib.callback.register('hospital:client:UseIfaks', function()
         })
     then
         StopAnimTask(cache.ped, 'mp_suicide', 'pill', 1.0)
-        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
         SetEntityHealth(cache.ped, GetEntityHealth(cache.ped) + 10)
         OnPainKillers = true
         exports.qbx_medical:DisableDamageEffects()
@@ -58,8 +57,7 @@ lib.callback.register('hospital:client:UseBandage', function()
             },
         })
     then
-        StopAnimTask(cache.ped, 'anim@amb@business@weed@weed_inspecting_high_dry@', 'weed_inspecting_high_base_inspector',
-            1.0)
+        StopAnimTask(cache.ped, 'anim@amb@business@weed@weed_inspecting_high_dry@', 'weed_inspecting_high_base_inspector', 1.0)
         SetEntityHealth(cache.ped, GetEntityHealth(cache.ped) + 10)
         if math.random(1, 100) < 50 then
             exports.qbx_medical:removeBleed(1)
@@ -69,8 +67,7 @@ lib.callback.register('hospital:client:UseBandage', function()
         end
         return true
     else
-        StopAnimTask(cache.ped, 'anim@amb@business@weed@weed_inspecting_high_dry@', 'weed_inspecting_high_base_inspector',
-            1.0)
+        StopAnimTask(cache.ped, 'anim@amb@business@weed@weed_inspecting_high_dry@', 'weed_inspecting_high_base_inspector', 1.0)
         lib.notify({ title = locale('error.canceled'), type = 'error' })
         return false
     end

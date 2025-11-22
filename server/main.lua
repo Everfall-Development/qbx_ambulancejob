@@ -157,6 +157,10 @@ local function triggerItemEventOnPlayer(src, item, event)
 	if not removeItem then return end
 
 	exports.ox_inventory:RemoveItem(src, item.name, 1)
+
+	if item == 'ifaks' then
+		exports.ef_hud:RelieveStress(src, math.random(12, 24))
+	end
 end
 
 exports.qbx_core:CreateUseableItem('ifaks', function(source, item)
