@@ -92,7 +92,7 @@ return {
                 },
             },
             jail = {
-                coords = vec3(1761, 2600, 46),
+                coords = vector3(1761, 2600, 46),
                 beds = {
                     { coords = vector4(1761.96, 2597.74, 45.66, 270.14), model = 2117668672 },
                     { coords = vector4(1761.96, 2591.51, 45.66, 269.8),  model = 2117668672 },
@@ -123,6 +123,10 @@ return {
             }
         },
         stations = {
+            { label = "The Bay Care Center",         coords = vector3(-251.03, 6321.97, 37.62) },  -- Paleto Medical
+            { label = "Grand Senora Medical Center", coords = vector3(1100.19, 2724.6, 38.79) },   -- RT68
+            { label = "Pillbox Hill Medical Center", coords = vector3(311.81, -583.92, 43.48) },   -- Pillbox
+
             { label = "IslaCare Clínica",            coords = vector3(4871.12, -4482.15, 10.08) }, -- Cayo Clinic
         }
     },

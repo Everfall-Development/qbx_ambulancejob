@@ -47,12 +47,12 @@ RegisterNetEvent('hospital:client:SendBillEmail', function(amount)
                 button = {}
             })
         else
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
-            sender = locale('mail.sender'),
-            subject = locale('mail.subject'),
-            message = locale('mail.message', gender, charInfo.lastname, amount),
-            button = {}
-        })
+            TriggerServerEvent('qb-phone:server:sendNewMail', {
+                sender = locale('mail.sender'),
+                subject = locale('mail.subject'),
+                message = locale('mail.message', gender, charInfo.lastname, amount),
+                button = {}
+            })
         end
     end)
 end)
@@ -65,6 +65,8 @@ CreateThread(function()
         SetBlipAsShortRange(blip, true)
         SetBlipScale(blip, 0.8)
         SetBlipColour(blip, 25)
+        SetBlipCategory(blip, 14)
+
         AddTextEntry(station.label, station.label)
         BeginTextCommandSetBlipName(station.label)
         EndTextCommandSetBlipName(blip)
