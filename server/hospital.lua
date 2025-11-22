@@ -29,20 +29,29 @@ end)
 
 ---@param src number
 local function billPlayer(src)
+	local checkinCost = sharedConfig.checkInCost
+	local onCayo = exports.ef_cayoperico:IsPlayerInCayoZone(src)
+
+	if onCayo then
+		checkinCost = checkinCost * 1.5
+	end
+
 	local player = exports.qbx_core:GetPlayer(src)
-	player.Functions.RemoveMoney('bank', sharedConfig.checkInCost,
-		'San Andreas Medical Network: Medical Bills (Hospital)', {
+	player.Functions.RemoveMoney('bank', checkinCost,
+		onCayo and 'Sistema de Salud Periqueño: Facturas Médicas (Hospital)' or 'San Andreas Medical Network: Medical Bills (Hospital)', {
 			type = "purchase:services",
 			subtype = "medical"
 		})
 
-	config.depositSociety('sams', sharedConfig.checkInCost, "Hospital Bills: " .. player.PlayerData.citizenid, {
-		type = "sale:services",
-		subtype = "medical",
-		purchaser = player.PlayerData.citizenid,
-	})
+	if not onCayo then
+		config.depositSociety('sams', checkinCost, "Hospital Bills: " .. player.PlayerData.citizenid, {
+			type = "sale:services",
+			subtype = "medical",
+			purchaser = player.PlayerData.citizenid,
+		})
+	end
 
-	TriggerClientEvent('hospital:client:SendBillEmail', src, sharedConfig.checkInCost)
+	TriggerClientEvent('hospital:client:SendBillEmail', src, checkinCost)
 end
 
 RegisterNetEvent('qbx_ambulancejob:server:playerEnteredBed', function(hospitalName, bedIndex)

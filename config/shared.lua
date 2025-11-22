@@ -123,9 +123,7 @@ return {
             }
         },
         stations = {
-            { label = "Medical Center", coords = vector3(-251.03, 6321.97, 37.62) }, -- Paleto Medical
-            { label = "Medical Center", coords = vector3(1100.19, 2724.6, 38.79) },  -- RT68
-            { label = "Medical Center", coords = vector3(311.81, -583.92, 43.48) },  -- Pillbox
+            { label = "IslaCare Clínica",            coords = vector3(4871.12, -4482.15, 10.08) }, -- Cayo Clinic
         }
     },
 }

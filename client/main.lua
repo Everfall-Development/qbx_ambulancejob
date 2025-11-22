@@ -34,15 +34,26 @@ end)
 ---@param amount number
 RegisterNetEvent('hospital:client:SendBillEmail', function(amount)
     if GetInvokingResource() then return end
+
     SetTimeout(math.random(2500, 4000), function()
         local charInfo = QBX.PlayerData.charinfo
         local gender = charInfo.gender == 1 and locale('info.mrs') or locale('info.mr')
+
+        if exports.ef_cayoperico:IsInCayoZone() then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {
+                sender = 'Sistema de Salud Periqueño',
+                subject = 'Facturas Médicas (Hospital)',
+                message = 'Estimado ' .. charInfo.lastname .. ',\n\nSe le informa que ha sido facturado por el uso de los servicios médicos en el Hospital de Isla Care. El monto a pagar es de $' .. amount .. '.',
+                button = {}
+            })
+        else
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = locale('mail.sender'),
             subject = locale('mail.subject'),
             message = locale('mail.message', gender, charInfo.lastname, amount),
             button = {}
         })
+        end
     end)
 end)
 
