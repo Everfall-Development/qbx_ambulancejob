@@ -201,14 +201,22 @@ exports('CheckIn', checkIn)
 
 local function respawn(src)
 	local closestHospital
-	if Player(src)?.state.jailTime then
+
+	if exports.ef_cayoperico:IsPlayerInCayoZone(src) then
+		local player = exports.qbx_core:GetPlayer(src)
+		if player.PlayerData.job.type == 'leo' or player.PlayerData.job.type == 'ems' then
+			closestHospital = 'cayo_carrier'
+		else
+			closestHospital = 'cayo'
+		end
+	elseif Player(src)?.state.jailTime then
 		closestHospital = 'jail'
 	else
 		local coords = GetEntityCoords(GetPlayerPed(src))
 		local closest = nil
 
 		for hospitalName, hospital in pairs(sharedConfig.locations.hospitals) do
-			if hospitalName ~= 'jail' then
+			if hospitalName ~= 'jail' and hospitalName ~= 'cayo' and hospitalName ~= 'cayo_carrier' then
 				if not closest or #(coords - hospital.coords) < #(coords - closest) then
 					closest = hospital.coords
 					closestHospital = hospitalName

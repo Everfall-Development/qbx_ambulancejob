@@ -100,6 +100,27 @@ return {
                     { coords = vector4(1771.85, 2591.85, 45.66, 91.51),  model = 2117668672 },
                 },
             },
+            cayo = {
+                coords = vector3(4871.12, -4482.15, 10.08),
+                checkIn = vector3(4875.91, -4480.45, 10.04),
+                beds = {
+                    { coords = vector4(4873.16, -4486.47, 10.0, 0), model = 2117668672 },
+                    { coords = vector4(4871.4, -4486.57, 10.0, 0),  model = 2117668672 },
+                    { coords = vector4(4868.7, -4486.48, 10.0, 0),  model = 2117668672 },
+                    { coords = vector4(4866.85, -4486.57, 10.0, 0), model = 2117668672 },
+                },
+            },
+            cayo_carrier = {
+                coords = vector3(3091.91, -4714.19, 15.26),
+                beds = {
+                    { coords = vector4(3097.8, -4726.41, 15.26, 198.36),  model = 2117668672 },
+                    { coords = vector4(3094.44, -4727.69, 15.26, 197.66), model = 2117668672 },
+                    { coords = vector4(3092.98, -4728.03, 15.26, 197.36), model = 2117668672 },
+                    { coords = vector4(3091.55, -4728.46, 15.26, 194.89), model = 2117668672 },
+                    { coords = vector4(3092.78, -4712.16, 15.26, 105.23), model = 2117668672 },
+                    { coords = vector4(3093.16, -4713.57, 15.26, 107.36), model = 2117668672 },
+                },
+            }
         },
         stations = {
             { label = "Medical Center", coords = vector3(-251.03, 6321.97, 37.62) }, -- Paleto Medical
