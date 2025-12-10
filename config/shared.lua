@@ -1,17 +1,15 @@
-local GovernmentData = exports.ef_nexus:GetGovernmentData("EFEmergency")
-
 return {
-    reviveCost = GovernmentData.ReviveCost,        -- Price patient has to pay when they're revived
-    checkInCost = GovernmentData.HospitalBillCost, -- Price for using the hospital check-in system
-    minForCheckIn = 20,                            -- Minimum number of people with the ambulance job to prevent the check-in system from being used
+    reviveCost = 100,                         -- Price patient has to pay when they're revived
+    checkInCost = 250,                        -- Price for using the hospital check-in system
+    minForCheckIn = 20,                       -- Minimum number of people with the ambulance job to prevent the check-in system from being used
 
-    locations = {                                  -- Various interaction points
+    locations = {                             -- Various interaction points
         duty = {
-            vector3(-260.31, 6319.41, 32.45),      -- Paleto Medical
-            vector3(1109.17, 2729.65, 39.27),      -- rt68
-            vector3(-432.69, -318.04, 35.13),      -- Mount Zonah Timeclock
-            vector3(349.26, -1429.4, 32.43),       -- Central LS
-            vector3(351.31, -1405.04, 32.53),      -- Central LS
+            vector3(-260.31, 6319.41, 32.45), -- Paleto Medical
+            vector3(1109.17, 2729.65, 39.27), -- rt68
+            vector3(-432.69, -318.04, 35.13), -- Mount Zonah Timeclock
+            vector3(349.26, -1429.4, 32.43),  -- Central LS
+            vector3(351.31, -1405.04, 32.53), -- Central LS
         },
         armory = {
             {
